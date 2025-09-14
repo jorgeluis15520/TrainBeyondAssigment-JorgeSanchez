@@ -4,7 +4,7 @@ using UnityEngine;
 public class GraspableNut : MonoBehaviour
 {
     private Rigidbody rgbd;
-    private bool isOnSocket;
+    public bool isOnSocket;
     private void Start()
     {
         rgbd = GetComponent<Rigidbody>();
@@ -26,17 +26,17 @@ public class GraspableNut : MonoBehaviour
         GameEvents.InvokeNutDropped();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Socket"))
+        if (collision.CompareTag("Socket"))
         {
             isOnSocket = true;
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Socket"))
+        if (collision.CompareTag("Socket"))
         {
             isOnSocket = false;
         }

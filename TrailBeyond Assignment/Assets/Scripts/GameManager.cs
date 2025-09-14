@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
+        GameEvents.OnNutGrabbed -= NutGrabbed;
+        GameEvents.OnNutDropped -= NutDropped;
         GameEvents.OnNutPlacedSuccess -= NutPlaced;
         GameEvents.OnNutPlacedFail -= ResetLastSequence;
         GameEvents.OnNutTightenedStart -= NutTightened;
