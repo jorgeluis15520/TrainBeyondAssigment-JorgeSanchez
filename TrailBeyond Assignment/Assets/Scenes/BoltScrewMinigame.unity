@@ -10315,6 +10315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   graspableNut: {fileID: 1866677448}
   testCap: {fileID: 919132148241401790}
+  capParticles: {fileID: 1743718894}
   nutOriginTransform: {fileID: 1822297161}
 --- !u!4 &1995907779
 Transform:

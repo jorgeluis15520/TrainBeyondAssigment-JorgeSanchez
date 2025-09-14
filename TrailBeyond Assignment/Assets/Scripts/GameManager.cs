@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GraspableNut graspableNut;
     [SerializeField] private GameObject testCap;
+    [SerializeField] private ParticleSystem capParticles;
     [SerializeField] private Transform nutOriginTransform;
 
     private static int currentSequenceOrder = 1;
@@ -68,6 +69,7 @@ public class GameManager : MonoBehaviour
         UpdateGamestate(GameState.WaitingForTightening);
         MoveNutToOrigin();
         graspableNut.gameObject.SetActive(false);
+        graspableNut.ResetIsOnRange();
     }
 
     public void NutTightened()
@@ -101,6 +103,7 @@ public class GameManager : MonoBehaviour
     private void EndTraining()
     {
         AudioManager.Instance?.PlayAudioClip(SoundsName.TrainingComplete);
+        capParticles.Play();
         testCap.SetActive(true);
         GameEvents.InvokeTrainingComplete();
     }

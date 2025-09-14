@@ -4,7 +4,7 @@ using UnityEngine;
 public class GraspableNut : MonoBehaviour
 {
     private Rigidbody rgbd;
-    public bool isOnSocket;
+    private bool isOnSocket;
     private void Start()
     {
         rgbd = GetComponent<Rigidbody>();
@@ -42,5 +42,6 @@ public class GraspableNut : MonoBehaviour
         }
     }
 
-    public bool IsOnSocketRange() { return isOnSocket;}
+    public void ResetIsOnRange() { isOnSocket = false; }
+    public bool IsOnSocketRange() { return isOnSocket; }
 }
