@@ -9,5 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/BoltScrewMinigame.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: effbd7f488892b64a80024fc1bbcc7a5, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 250666a99140feb42abd182f58c31903, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: df834da5f012e5e489079a77ea4bb44d, type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 4ab3c31cf1e9e9749b9e9e49bc9a122b, type: 2}
   m_UseUCBPForAssetBundles: 0
