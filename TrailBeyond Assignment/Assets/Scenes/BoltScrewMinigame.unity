@@ -9979,6 +9979,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5445102749525153894, guid: f5ffa26f8f8b358468859051fe6e2663, type: 3}
   m_PrefabInstance: {fileID: 6149043712265536845}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1866677448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866677447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29510e92bf3dc1f4f885510162e5ce89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1869555761
 GameObject:
   m_ObjectHideFlags: 0
@@ -10291,7 +10303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d7b33ddc7f7466489e027369bbd7065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graspableNut: {fileID: 1866677447}
+  graspableNut: {fileID: 1866677448}
   testCap: {fileID: 919132148241401790}
   nutOriginTransform: {fileID: 1822297161}
 --- !u!4 &1995907779
@@ -16461,7 +16473,7 @@ PrefabInstance:
     - target: {fileID: 5202375729922714861, guid: f5ffa26f8f8b358468859051fe6e2663, type: 3}
       propertyPath: m_LastSelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1995907778}
+      objectReference: {fileID: 1866677448}
     - target: {fileID: 5202375729922714861, guid: f5ffa26f8f8b358468859051fe6e2663, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -16477,7 +16489,7 @@ PrefabInstance:
     - target: {fileID: 5202375729922714861, guid: f5ffa26f8f8b358468859051fe6e2663, type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1995907778}
+      objectReference: {fileID: 1866677448}
     - target: {fileID: 5202375729922714861, guid: f5ffa26f8f8b358468859051fe6e2663, type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -16488,7 +16500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5202375729922714861, guid: f5ffa26f8f8b358468859051fe6e2663, type: 3}
       propertyPath: m_LastSelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DropNut
+      value: Released
       objectReference: {fileID: 0}
     - target: {fileID: 5202375729922714861, guid: f5ffa26f8f8b358468859051fe6e2663, type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -16500,7 +16512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5202375729922714861, guid: f5ffa26f8f8b358468859051fe6e2663, type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NutGrabbed
+      value: Grabbed
       objectReference: {fileID: 0}
     - target: {fileID: 5202375729922714861, guid: f5ffa26f8f8b358468859051fe6e2663, type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -16516,7 +16528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5202375729922714861, guid: f5ffa26f8f8b358468859051fe6e2663, type: 3}
       propertyPath: m_LastSelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
+      value: GraspableNut, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5202375729922714861, guid: f5ffa26f8f8b358468859051fe6e2663, type: 3}
       propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -16524,7 +16536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5202375729922714861, guid: f5ffa26f8f8b358468859051fe6e2663, type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
+      value: GraspableNut, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5202375729922714861, guid: f5ffa26f8f8b358468859051fe6e2663, type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -16561,7 +16573,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5445102749525153894, guid: f5ffa26f8f8b358468859051fe6e2663, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1866677448}
   m_SourcePrefab: {fileID: 100100000, guid: f5ffa26f8f8b358468859051fe6e2663, type: 3}
 --- !u!23 &6175755462389849547
 MeshRenderer:

@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject graspableNut;
+    [SerializeField] private GraspableNut graspableNut;
     [SerializeField] private GameObject testCap;
     [SerializeField] private Transform nutOriginTransform;
 
@@ -16,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        GameEvents.OnNutGrabbed += NutGrabbed;
+        GameEvents.OnNutDropped += NutDropped;
         GameEvents.OnNutPlacedSuccess += NutPlaced;
         GameEvents.OnNutPlacedFail += ResetLastSequence;
         GameEvents.OnNutTightenedStart += NutTightened;
@@ -32,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        graspableNut.SetActive(false);
+        graspableNut.gameObject.SetActive(false);
         testCap.SetActive(true);
         state = GameState.WaitingForGrabbing;
     }
@@ -46,11 +45,8 @@ public class GameManager : MonoBehaviour
 
     public void MoveNutToOrigin()
     {
-        graspableNut.SetActive(true);
-        Rigidbody rgbd = graspableNut.GetComponent<Rigidbody>();
-        rgbd.linearVelocity = Vector3.zero;
-        rgbd.MovePosition(nutOriginTransform.position);
-        rgbd.MoveRotation(transform.rotation);
+        graspableNut.gameObject.SetActive(true);
+        graspableNut.MoveToTransform(nutOriginTransform);        
     }
 
     public void ResetLastSequence()
@@ -63,14 +59,13 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.Instance?.PlayAudioClip(SoundsName.GrabNut);
         UpdateGamestate(GameState.WaitingForPlacing);
-        GameEvents.InvokeNutGrabbed();
     }
 
     public void NutPlaced()
     {
         UpdateGamestate(GameState.WaitingForTightening);
         MoveNutToOrigin();
-        graspableNut.SetActive(false);
+        graspableNut.gameObject.SetActive(false);
     }
 
     public void NutTightened()
@@ -78,12 +73,13 @@ public class GameManager : MonoBehaviour
         UpdateGamestate(GameState.Tightening);
     }
 
-    public void DropNut()
+    public void NutDropped()
     {
+        if (graspableNut.IsOnSocketRange()) return;
+
         AudioManager.Instance?.PlayAudioClip(SoundsName.DropNut);
-        graspableNut.SetActive(false);
+        graspableNut.gameObject.SetActive(false);
         ResetLastSequence();
-        GameEvents.InvokeNutDropped();
     }
 
     private void CheckTrainingComplete()
