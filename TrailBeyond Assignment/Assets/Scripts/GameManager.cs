@@ -121,6 +121,7 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         Start();
+        currentSequenceOrder = 1;
         GameEvents.InvokeTrainignRestart();
     }
 }
